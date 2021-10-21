@@ -16,14 +16,14 @@ export function Home({navigation}){
     async function asyncFunc() {
         try {
             const storagedToken = await AsyncStorage.getItem('@Bovhand:token');
-            console.log(storagedToken)
+           // console.log(storagedToken)
 
             const userId = user?.id;
             
             const response = await api.get(`/users/${userId}/animal`, 
             { headers: { Authorization: 'Bearer ' + storagedToken}});
       
-          return console.log(response.data);
+           // return console.log(response.data);
         } catch (error) {
           alert(error); 
         }
