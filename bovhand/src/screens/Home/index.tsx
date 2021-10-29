@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { View, Text, Image } from 'react-native';
 import { RectButton } from "react-native-gesture-handler";
 import { Entypo } from '@expo/vector-icons';
@@ -9,27 +9,33 @@ import { theme } from "../../global/styles/theme";
 import { styles } from './styles';
 import { useAuth } from "../../components/contexts/auth";
 import api from "../../services/api";
+import { useAnimal } from "../../components/contexts/animal";
 
-export function Home({navigation}){
+export function Home({navigation} : any){
     const { user } = useAuth();
+    //const { countAnimal } = useAnimal();
+    const [countAnimal, setCountAnimal] = useState<number>(0);
 
-    async function asyncFunc() {
-        try {
-            const storagedToken = await AsyncStorage.getItem('@Bovhand:token');
-           // console.log(storagedToken)
-
-            const userId = user?.id;
-            
-            const response = await api.get(`/users/${userId}/animal`, 
-            { headers: { Authorization: 'Bearer ' + storagedToken}});
-      
-           // return console.log(response.data);
-        } catch (error) {
-          alert(error); 
-        }
-      }
-
-    asyncFunc();
+    
+        async function asyncFunc() {
+            try {
+                const storagedToken = await AsyncStorage.getItem('@Bovhand:token');
+    
+    
+                const userId = user?.id;
+                
+                const response = await api.get(`/users/${userId}/animal`, 
+                { headers: { Authorization: 'Bearer ' + storagedToken}});
+          
+                setCountAnimal(response.data.length)
+            } catch (error) {
+              alert(error); 
+            }
+          }
+          useEffect(()=>{
+              asyncFunc();
+    })
+    
 
     const navigationButton = useNavigation();
 
@@ -90,7 +96,7 @@ export function Home({navigation}){
                     <View style={styles.counter}>
                         <Text style={styles.counterTitle}>Ativos</Text>
                         <View style={styles.circleCounter}>
-                            <Text style={styles.counterText}>15</Text>
+                            <Text style={styles.counterText}>{countAnimal}</Text>
                         </View>
                     </View>
                 </View>

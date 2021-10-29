@@ -5,7 +5,6 @@ import { createDrawerNavigator} from '@react-navigation/drawer';
 import { Entypo, MaterialCommunityIcons, FontAwesome } from '@expo/vector-icons'; 
 
 import { 
-    ListAnimals, 
     Alarms, 
     InfoApp, 
     Home, 
@@ -18,7 +17,8 @@ import {
     RegisterFoods, 
     InfoAnimals,
     InfoSanitarys,
-    AboutAnimals, 
+    AboutAnimals,
+    ListAnimals, 
 } from "../global/imports/import";
 import { theme } from "../global/styles/theme";
 import { ButtonNew } from "../components/ButtonNew";
@@ -108,6 +108,7 @@ function mainScreen(){
         <AppStack.Screen name='Animals' component={Animals}/>
         <AppStack.Screen name='AboutAnimals' component={AboutAnimals}/>
         <AppStack.Screen name='InfoAnimals' component={InfoAnimals}/>
+        <AppStack.Screen name='listAnimals' component={ListAnimals}/>
         <AppStack.Screen name='Reports' component={Reports}/>
         <AppStack.Screen name="InfoSanitarys" component={InfoSanitarys}/>
         <AppStack.Screen name="Sanitarys" component={Sanitarys}/>

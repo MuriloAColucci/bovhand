@@ -5,6 +5,7 @@ import { AntDesign } from '@expo/vector-icons';
 
 import { styles } from './styles';
 import { theme } from "../../global/styles/theme";
+import { InfoFormAnimal } from "../../components/InfoFormAnimal";
 
 
 export function InfoAnimals() {
@@ -12,8 +13,8 @@ export function InfoAnimals() {
 
     return (
       <View style={styles.container}>
-            <View style={styles.topName}>
-                <Text style={styles.name}>Animal</Text>
+            <View style={styles.infos}>
+                <InfoFormAnimal/>
             </View>
       </View>
     )

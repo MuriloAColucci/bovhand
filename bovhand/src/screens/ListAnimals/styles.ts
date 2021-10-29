@@ -88,6 +88,25 @@ export const styles = StyleSheet.create({
   },
   iconEnter:{
     color: theme.colors.primary,
-    marginLeft: 15
+    
   },
+  text: {
+    color: theme.colors.secondary,
+    padding: 4,
+    fontSize: 15
+  },
+  textBirthday:{
+    color: theme.colors.secondary,
+    fontWeight: 'bold',
+    fontSize: 17
+  },
+  infoPrincipal:{
+    marginLeft: 15,
+    width: '35%'
+  },
+  infoBirthday:{
+    marginRight: 0,
+    width: '50%',
+    alignItems: 'flex-end'
+  }
 });

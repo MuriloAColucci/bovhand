@@ -5,33 +5,22 @@ import { AntDesign } from '@expo/vector-icons';
 import { useNavigation } from "@react-navigation/native";
 import { MaterialIcons } from '@expo/vector-icons'; 
 import DateTimePickerModal from "react-native-modal-datetime-picker";
-import AsyncStorage from '@react-native-async-storage/async-storage';
-
 import moment from "moment";
 
-import { useAuth } from "../../components/contexts/auth";
-import api from "../../services/api";
-
 import { styles } from './styles';
+import { useAnimal } from "../../components/contexts/animal";
 
 export function ListAnimals() {
-    const [animals, setAnimals] = useState([]);
-
-    const { user } = useAuth();
+    const { getAnimal, listAnimals, animalsList } = useAnimal();
     const navigation = useNavigation();
 
+    function handleAboutAnimals(id: number) {
+        getAnimal(id)
+        navigation.navigate('AboutAnimals')
+    }
+
     useEffect(()=>{
-        async function getAnimal() {
-            const storagedToken = await AsyncStorage.getItem('@Bovhand:token');
-
-            const userId = user?.id;
-
-            const { data } = await api.get(`/users/${userId}/animal`, 
-            { headers: { Authorization: 'Bearer ' + storagedToken}})
-            
-            setAnimals(data);
-        }
-        getAnimal()
+        listAnimals()
     })
 
 
@@ -39,14 +28,14 @@ export function ListAnimals() {
         console.log(alo)
     }
 
-      const renderItem = ({ item }) => (
-        <RectButton style={styles.buttonAnimal}  onPress={()=>navigation.goBack()}>
-            <View>
-                <Text>{item.nameanimal}</Text>
-                <Text>{moment(item.birthday).format('DD/MM/YYYY')}</Text>
+      const renderItem = ({ item } : any) => (
+        <RectButton style={styles.buttonAnimal}  onPress={()=>handleAboutAnimals(item.id)}>
+            <View style={styles.infoPrincipal}>
+                <Text style={styles.text}>{item.register}</Text>
+                <Text style={styles.text}>{item.nameanimal}</Text>
             </View>
-                <View>
-                <Text>{item.nameanimal}</Text>
+            <View style={styles.infoBirthday}>
+                <Text style={styles.textBirthday}>{moment(item.birthday).format('DD/MM/YYYY')}</Text>
             </View>
             <MaterialIcons style={styles.iconEnter} name="keyboard-arrow-right" size={32}/>
         </RectButton>
@@ -61,7 +50,7 @@ export function ListAnimals() {
                     </RectButton>
                 </View>
                 <View style={styles.titleMenu}>
-                    <Text style={styles.title}>Home</Text>
+                    <Text style={styles.title}>Lista de Animais</Text>
                 </View>
             </View>
             <View style={styles.lineTop}>
@@ -72,7 +61,7 @@ export function ListAnimals() {
                 <View style={styles.containerButtons}>
                     <View style={styles.containerButtonsOne}>
                     <FlatList
-                            data={animals}
+                            data={animalsList}
                             renderItem={renderItem}
                             keyExtractor={item => item.id.toString()}
                         />

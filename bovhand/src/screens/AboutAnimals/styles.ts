@@ -26,9 +26,17 @@ export const styles = StyleSheet.create({
     iconBack:{
         color: theme.colors.heading,
     },
+    buttonEdit: {
+        alignItems: 'flex-start',
+        justifyContent: 'flex-end',
+        height: '100%',
+    },
+    iconEdit:{
+        color: theme.colors.heading,
+    },
     titleMenu:{
         justifyContent: 'flex-end',
-        width: '75%'
+        width: '60%'
     },
     title: {
         fontSize: 25,

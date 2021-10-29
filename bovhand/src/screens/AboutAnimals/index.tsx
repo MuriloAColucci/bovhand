@@ -3,6 +3,7 @@ import { View, Text } from 'react-native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { RectButton } from "react-native-gesture-handler";
 import { AntDesign } from '@expo/vector-icons';
+import { Feather } from '@expo/vector-icons'; 
 import { useNavigation } from "@react-navigation/native";
 
 //import { Sanitarys, InfoApp } from "../../global/imports/import";
@@ -29,7 +30,12 @@ export function AboutAnimals() {
                 </View>
                 <View style={styles.titleMenu}>
                         <Text style={styles.title}>Animal</Text>
-                    </View>
+                </View>
+                <View>
+                    <RectButton style={styles.buttonEdit}>
+                        <Feather style={styles.iconEdit} name="edit" size={32} color={theme.colors.white}/>
+                    </RectButton>
+                </View>
             </View>
             <View style={styles.lineTop}>
                 <View style={styles.lineCenter}>

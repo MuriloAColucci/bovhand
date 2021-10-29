@@ -11,8 +11,8 @@ import { theme } from "../../global/styles/theme";
 export function Animals() {
     const navigation = useNavigation();
 
-    function handleAboutAnimals() {
-      navigation.navigate('AboutAnimals')
+    function handleListAnimals() {
+      navigation.navigate('ListAnimals')
     }
 
     return (
@@ -34,7 +34,7 @@ export function Animals() {
             <View style={styles.body}>
                 <View style={styles.containerButtons}>
                     <View style={styles.containerButtonsOne}>
-                        <RectButton style={styles.buttonList} onPress={handleAboutAnimals} >
+                        <RectButton style={styles.buttonList} onPress={handleListAnimals} >
                             <Image style={styles.buttonIcon} source={require('../../../assets/iconList.png')}/>
                             <Text style={styles.buttonText}>Lista de Animais</Text>
                         </RectButton>

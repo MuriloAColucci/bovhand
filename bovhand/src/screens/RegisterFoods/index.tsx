@@ -28,7 +28,7 @@ type Values = {
 }
 
 
-export function RegisterFoods({ navigation }) {
+export function RegisterFoods({ navigation } : any) {
     const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
     const [date, setDate] = useState('');
     let titleDate='';

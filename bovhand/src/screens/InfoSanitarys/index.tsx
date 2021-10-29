@@ -5,7 +5,7 @@ import { AntDesign } from '@expo/vector-icons';
 import { useNavigation } from "@react-navigation/native";
 
 import { styles } from './styles';
-import { theme } from "../../global/styles/theme";
+import { InfoFormSanitary } from "../../components/InfoFormSanitary";
 
 
 
@@ -13,8 +13,8 @@ export function InfoSanitarys() {
 
     return (
       <View style={styles.container}>
-            <View style={styles.topName}>
-                <Text style={styles.name}>Animal</Text>
+            <View style={styles.infos}>
+                <InfoFormSanitary/>
             </View>
       </View>
     )

@@ -4,20 +4,19 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import api from '../../services/api';
 
 type SignData={
-    id: string,
     email: string,
     password: string,
     islogged: boolean,
 }
 
-type User ={
+type User={
     id: string,
     name: string,
     farm: string,
     email: string;
 }
 
-type AuthContextData ={
+type AuthContextData={
     signed: boolean;
     user: User | null;
     loading: boolean;
@@ -27,11 +26,11 @@ type AuthContextData ={
 
 export const AuthContext = createContext({} as AuthContextData);
 
-export function AuthProvider({children}){
+export function AuthProvider({children} : any){
     const [user, setUser] = useState<User | null>(null);
     const [loading, setLoading] = useState(true);
 
-     useEffect(()=>{
+    useEffect(()=>{
         async function loadStoragedData() {
             const storagedUser = await AsyncStorage.getItem('@Bovhand:user');
             const storagedToken = await AsyncStorage.getItem('@Bovhand:token');

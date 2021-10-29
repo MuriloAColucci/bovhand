@@ -8,13 +8,16 @@ import { Register } from './src/screens/Register';
 import { Home, } from './src/screens/Home';
 import { Routes } from './src/routes';
 import { AuthProvider } from './src/components/contexts/auth';
+import { AnimalProvider } from './src/components/contexts/animal';
 
 export default function App(){
   return(
     <NavigationContainer>
       <AuthProvider>
-        <StatusBar barStyle="light-content" backgroundColor="transparent" translucent/>
-        <Routes />
+        <AnimalProvider>
+          <StatusBar barStyle="light-content" backgroundColor="transparent" translucent/>
+          <Routes />
+        </AnimalProvider>
       </AuthProvider>
     </NavigationContainer>
   );
