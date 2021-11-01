@@ -19,7 +19,9 @@ class Animal extends Model {
 
     static associate(models){
         this.belongsTo(models.User, { foreignKey: 'user_id', as: 'user' });
+        this.hasMany(models.Sanitary, { foreignKey: 'animal_id', as: 'sanitary' });
     }
+
 }
 
 module.exports = Animal;

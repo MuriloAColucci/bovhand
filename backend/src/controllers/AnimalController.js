@@ -23,7 +23,7 @@ module.exports = {
 
         try{
             const { user_id }  = req.params;
-            console.log(user_id)
+
             const user = await User.findOne({where: {id: user_id}});
             const animal = await Animal.findByPk(id)
             
