@@ -54,17 +54,8 @@ export const styles = StyleSheet.create({
     borderTopRightRadius: 40,
     paddingHorizontal: 10,
   },
-  containerButtons: {
-    flex: 1,
-        flexDirection: 'column',
-        width: '100%',
-        marginTop: 30,
-        marginBottom: 20,
-        paddingHorizontal: 5,
-  },
-  containerButtonsOne: {
-    flex: 2,
-    padding: 5,
+  flatList:{
+    marginTop: 20,
   },
   buttonAnimal: {
     flex: 1,

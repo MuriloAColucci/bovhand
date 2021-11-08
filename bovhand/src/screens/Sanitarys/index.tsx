@@ -4,14 +4,15 @@ import { createMaterialTopTabNavigator } from '@react-navigation/material-top-ta
 import { RectButton } from "react-native-gesture-handler";
 import { AntDesign } from '@expo/vector-icons';
 import { useNavigation } from "@react-navigation/native";
-
 import { styles } from './styles';
-import { theme } from "../../global/styles/theme";
-
-const Tab = createMaterialTopTabNavigator();
 
 export function Sanitarys() {
     const navigation = useNavigation();
+    const navigationButton = useNavigation();
+
+    function handleVaccines(){
+        navigationButton.navigate('SanitaryAnimals')
+    }
 
     return (
       <View style={styles.container}>
@@ -32,14 +33,14 @@ export function Sanitarys() {
             <View style={styles.body}>
                 <View style={styles.containerButtons}>
                     <View style={styles.containerButtonsOne}>
-                        <RectButton style={styles.buttonList} >
+                        <RectButton style={styles.buttonList} onPress={handleVaccines}>
                             <Image style={styles.buttonIcon} source={require('../../../assets/iconVaccines.png')}/>
                             <Text style={styles.buttonText}>Vacinas e Medicações</Text>
                         </RectButton>
-                        <RectButton style={styles.buttonBirth} >
+                        {/* <RectButton style={styles.buttonBirth} >
                             <Image style={styles.buttonIcon} source={require('../../../assets/iconDescart.png')}/>
                             <Text style={styles.buttonText}>Descartes</Text>
-                        </RectButton>
+                        </RectButton> */}
                     </View>
                 </View>
                 <View style={styles.containerCounter}>

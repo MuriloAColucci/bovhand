@@ -62,6 +62,7 @@ export const styles = StyleSheet.create({
         width: '100%',
         marginTop: 40,
         paddingHorizontal: 5,
+        marginBottom: 150
     },
     containerButtonsOne: {
         flex: 2,

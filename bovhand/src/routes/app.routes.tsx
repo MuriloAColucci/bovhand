@@ -2,7 +2,7 @@ import React from "react";
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createDrawerNavigator} from '@react-navigation/drawer';
-import { Entypo, MaterialCommunityIcons, FontAwesome } from '@expo/vector-icons'; 
+import { Entypo, MaterialCommunityIcons, FontAwesome, Ionicons  } from '@expo/vector-icons'; 
 
 import { 
     Alarms, 
@@ -11,14 +11,16 @@ import {
     RegisterAnimals, 
     Perfil, 
     Animals, 
-    Sanitarys, 
+    Sanitarys,
+    SanitaryAnimals,
     FoodExpenses, 
     FoodHistorys, 
     RegisterFoods, 
     InfoAnimals,
     InfoSanitarys,
     AboutAnimals,
-    ListAnimals, 
+    ListAnimals,
+    RegisterVaccines, 
 } from "../global/imports/import";
 import { theme } from "../global/styles/theme";
 import { ButtonNew } from "../components/ButtonNew";
@@ -80,6 +82,15 @@ function myApp(){
                 }}  
             />
             <Tab.Screen 
+                name="Perfil" 
+                component={Perfil}
+                options={{
+                    tabBarIcon: ({size, color}) =>(
+                        <Ionicons name="person" size={size} color={color} />
+                    )
+                }} 
+            />
+            {/* <Tab.Screen 
                 name="Alarms" 
                 component={Alarms}
                 options={{
@@ -87,7 +98,7 @@ function myApp(){
                         <FontAwesome name="bell" size={size} color={color} />
                     )
                 }} 
-            />
+            /> */}
             <Tab.Screen 
                 name="InfoApp" 
                 component={InfoApp}
@@ -112,9 +123,11 @@ function mainScreen(){
         <AppStack.Screen name='Reports' component={Reports}/>
         <AppStack.Screen name="InfoSanitarys" component={InfoSanitarys}/>
         <AppStack.Screen name="Sanitarys" component={Sanitarys}/>
+        <AppStack.Screen name="SanitaryAnimals" component={SanitaryAnimals}/>
         <AppStack.Screen name='FoodExpenses' component={FoodExpenses}/>
         <AppStack.Screen name='FoodHistorys' component={FoodHistorys}/>
         <AppStack.Screen name='RegisterFoods' component={RegisterFoods}/>
+        <AppStack.Screen name='RegisterVaccines' component={RegisterVaccines}/>
         <AppStack.Screen name='Perfil' component={Perfil}/>
     </AppStack.Navigator>)
     
@@ -122,7 +135,7 @@ function mainScreen(){
 
 export function AppRoutes(){
     return(
-        <Drawer.Navigator drawerContent={props => <DrawerContent {...props}/>}>
+        <Drawer.Navigator drawerContent={props => <DrawerContent props={undefined} {...props}/>}>
             <Drawer.Screen name='Home' component={mainScreen}/>
         </Drawer.Navigator>
     )

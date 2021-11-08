@@ -75,22 +75,21 @@ export function Home({navigation} : any){
                             <Image style={styles.buttonIcon} source={require('../../../assets/iconAnimals.png')}/>
                             <Text style={styles.buttonText}>Animais</Text>
                         </RectButton>
-                        <RectButton style={styles.buttonReports} onPress={handleReports}>
+                        {/* <RectButton style={styles.buttonReports} onPress={handleReports}>
                             <Image style={styles.buttonIcon} source={require('../../../assets/iconReports.png')}/>
                             <Text style={styles.buttonText}>Relatórios</Text>
-                        </RectButton>
+                        </RectButton> */}
                     </View>
                     <View style={styles.containerButtonsTwo}>    
                         <RectButton style={styles.buttonSanitarys} onPress={handleSanitarys}>
                             <Image style={styles.buttonIcon} source={require('../../../assets/iconSanitarys.png')}/>
                             <Text style={styles.buttonText}>Sanitários</Text>   
                         </RectButton>
-                        <RectButton style={styles.buttonFoodExpenses} onPress={handleFoodExpenses}>
+                        {/* <RectButton style={styles.buttonFoodExpenses} onPress={handleFoodExpenses}>
                             <Image style={styles.buttonIcon} source={require('../../../assets/iconFoodExpenses.png')}/>
                             <Text style={styles.buttonText}>Alimentos</Text>
-                        </RectButton>
+                        </RectButton> */}
                     </View>
-                    <Text style={styles.counterText}>{user?.email}</Text>
                 </View>
                 <View style={styles.containerCounter}>
                     <View style={styles.counter}>

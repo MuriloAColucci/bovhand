@@ -1,42 +1,58 @@
-import React from "react";
-import { Text,  SafeAreaView, TextInput, View} from 'react-native';
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
-import { useNavigation } from "@react-navigation/native";
+import React, { useEffect } from "react";
+import { Text, View, FlatList} from 'react-native';
+import { RectButton } from "react-native-gesture-handler";
+import { AntDesign } from '@expo/vector-icons'; 
+
+import moment from "moment";
 import { styles } from "./styles";
+import { useSanitary } from "../contexts/sanitary";
 
 
 export function InfoFormSanitary() {
-    // const cfpRef = useRef(null);
 
-    const navigation = useNavigation();
-    //const alou = "teste"
+    const { sanitarysList, listSanitarys, deleteSanitary } = useSanitary();
+
+    useEffect(()=>{
+        listSanitarys()
+    })
+
+    const renderItem = ({ item } : any) => (
+        <View>
+            <View style={styles.container}>
+                <View style={styles.containerList}>
+                    <Text style={styles.text}>DATA DA APLICAÇÃO</Text>
+                    <Text style={styles.input}>{moment(item.date).format('DD/MM/YYYY')}</Text>
+
+                    <Text style={styles.text}>NOME DA MEDICAÇÃO</Text>
+                    <Text style={styles.input}>{item.namesanitary}</Text>
+                </View>
+                <View style={styles.containerList}>
+                    <Text style={styles.text}>DOSE UTILIZADA</Text>
+                    <Text style={styles.input}>{item.dose}</Text>
+
+                    <Text style={styles.text}>PREÇO</Text>
+                    <Text style={styles.input}>{item.price.toString()}</Text>
+                </View>
+            </View>
+            <View style={styles.deleteContainer}>
+                <RectButton style={styles.delete}>
+                    <AntDesign name="delete" size={32} color="black" onPress={()=>deleteSanitary(item.id)}/>
+                </RectButton>
+            </View>
+            <View>
+                <Text style={styles.line}></Text>
+            </View>
+        </View>
+      );
 
     return (
 
-        <SafeAreaView style={styles.container}>
-                    <KeyboardAwareScrollView style={styles.scroll}>
-                        <Text style={styles.text}>DATA DA APLICAÇÃO</Text>
-                        <TextInput
-                            style={styles.input}
-                            editable={false}
-                            value={"teste"}
-                        />
-                        {/*<View>{alou != '' ? <Text>data</Text>: null }</View>*/}
-
-                        <Text style={styles.text}>NOME DA MEDICAÇÃO</Text>
-                        <TextInput
-                            style={styles.input}
-                            editable={false}
-                            value={"teste"}
-                        />
-                        <Text style={styles.text}>DOSE UTILIZADA</Text>
-                        <TextInput
-                            style={styles.input}
-                            editable={false}
-                            value={"teste"}
-                        />
-                    </KeyboardAwareScrollView>
-                
-        </SafeAreaView>
+        <View>
+            <FlatList
+                data={sanitarysList}
+                renderItem={renderItem}
+                keyExtractor={item => item.id.toString()}
+            />
+        </View>
     )
 }

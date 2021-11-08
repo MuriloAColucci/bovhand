@@ -4,15 +4,14 @@ import { theme } from '../../global/styles/theme';
 export const styles = StyleSheet.create({
     container: {
     flex: 1,
-    backgroundColor: theme.colors.background,
+        backgroundColor: theme.colors.background,
+        marginTop: 30,
     },
     scroll: {
         paddingHorizontal: 20,
-        marginTop: 20,
         marginBottom: 30,
         width: '100%',
     },
-
     text: {
         color: theme.colors.secondary,
         marginTop: 15,
@@ -26,16 +25,4 @@ export const styles = StyleSheet.create({
       fontSize: 15,
       borderColor: theme.colors.line
     },
-    deleteContainer: {
-        marginVertical: 15,
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    delete: {
-        flex: 1,
-        width: '10%',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-
 })

@@ -20,13 +20,9 @@ export function ListAnimals() {
     }
 
     useEffect(()=>{
-        listAnimals()
+        listAnimals();
     })
 
-
-    function teste(alo: string){
-        console.log(alo)
-    }
 
       const renderItem = ({ item } : any) => (
         <RectButton style={styles.buttonAnimal}  onPress={()=>handleAboutAnimals(item.id)}>
@@ -58,8 +54,7 @@ export function ListAnimals() {
                 </View>
             </View>
             <View style={styles.body}>
-                <View style={styles.containerButtons}>
-                    <View style={styles.containerButtonsOne}>
+                <View style={styles.flatList}>
                     <FlatList
                             data={animalsList}
                             renderItem={renderItem}
@@ -67,7 +62,6 @@ export function ListAnimals() {
                         />
                     </View>
                 </View>
-            </View>
         </View>
     )
 }

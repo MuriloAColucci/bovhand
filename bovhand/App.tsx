@@ -9,14 +9,17 @@ import { Home, } from './src/screens/Home';
 import { Routes } from './src/routes';
 import { AuthProvider } from './src/components/contexts/auth';
 import { AnimalProvider } from './src/components/contexts/animal';
+import { SanitaryProvider } from './src/components/contexts/sanitary';
 
 export default function App(){
   return(
     <NavigationContainer>
       <AuthProvider>
         <AnimalProvider>
-          <StatusBar barStyle="light-content" backgroundColor="transparent" translucent/>
-          <Routes />
+          <SanitaryProvider>
+            <StatusBar barStyle="light-content" backgroundColor="transparent" translucent/>
+            <Routes />
+          </SanitaryProvider>
         </AnimalProvider>
       </AuthProvider>
     </NavigationContainer>

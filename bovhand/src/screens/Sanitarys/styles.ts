@@ -58,21 +58,21 @@ export const styles = StyleSheet.create({
     containerButtons: {
         flex: 1,
         flexDirection: 'column',
-        height: '50%',
+        height: '25%',
         width: '100%',
         marginTop: 40,
         paddingHorizontal: 5,
+        marginBottom: 150
     },
     containerButtonsOne: {
         flex: 2,
-        
         padding: 5,
     },
     buttonList: {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        height: '50%',
+        height: '25%',
         width: '100%',
         marginBottom: 5,
         borderRadius: 20,

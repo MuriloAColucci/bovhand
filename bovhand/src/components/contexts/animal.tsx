@@ -1,6 +1,5 @@
 import React, { createContext, useState, useEffect, useContext } from "react";
 import AsyncStorage from '@react-native-async-storage/async-storage';
-
 import api from '../../services/api';
 import { useAuth } from "./auth";
 
@@ -24,7 +23,6 @@ type AnimalContextData={
     animalsList: AnimalList,
     getAnimal: (animalId: number) => void,
     listAnimals: () => void,
-    //countAnimal: number,
 }
 
 export const AnimalContext = createContext({} as AnimalContextData);

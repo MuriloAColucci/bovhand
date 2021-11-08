@@ -54,7 +54,7 @@ export function FormikRegister() {
             email: values.email,
             password: values.password,
         }
-        console.log(data)
+        //console.log(data)
         
         try{
             await api.post('users', data)

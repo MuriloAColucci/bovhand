@@ -11,7 +11,7 @@ type SignData={
 
 type User={
     id: string,
-    name: string,
+    nameusers: string,
     farm: string,
     email: string;
 }
@@ -61,7 +61,7 @@ export function AuthProvider({children} : any){
 
             const user = {
                 id: data.user.id,
-                name: data.user.name,
+                nameusers: data.user.nameusers,
                 farm: data.user.farm,
                 email: data.user.email,
             }

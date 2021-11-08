@@ -38,10 +38,10 @@ export function Animals() {
                             <Image style={styles.buttonIcon} source={require('../../../assets/iconList.png')}/>
                             <Text style={styles.buttonText}>Lista de Animais</Text>
                         </RectButton>
-                        <RectButton style={styles.buttonBirth} >
+                        {/* <RectButton style={styles.buttonBirth} >
                             <Image style={styles.buttonIcon} source={require('../../../assets/iconCows.png')}/>
                             <Text style={styles.buttonText}>Cadastro de partos</Text>
-                        </RectButton>
+                        </RectButton> */}
                     </View>
                 </View>
                 <View style={styles.containerCounter}>

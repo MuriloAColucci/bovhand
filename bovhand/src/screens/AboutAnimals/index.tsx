@@ -18,7 +18,6 @@ const Tab = createMaterialTopTabNavigator();
 export function AboutAnimals() {
     const navigation = useNavigation();
 
-
     return (
       <View style={styles.container}>
             <View style={styles.header}>
@@ -31,11 +30,11 @@ export function AboutAnimals() {
                 <View style={styles.titleMenu}>
                         <Text style={styles.title}>Animal</Text>
                 </View>
-                <View>
+                {/* <View>
                     <RectButton style={styles.buttonEdit}>
                         <Feather style={styles.iconEdit} name="edit" size={32} color={theme.colors.white}/>
                     </RectButton>
-                </View>
+                </View> */}
             </View>
             <View style={styles.lineTop}>
                 <View style={styles.lineCenter}>
