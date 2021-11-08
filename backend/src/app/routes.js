@@ -20,7 +20,6 @@ router.post('/users/:user_id/animal', AnimalController.store);
 router.delete('/users/:id/animal', AnimalController.delete);
 router.put('/users/:id/animal', AnimalController.update);
 
-
 router.get('/animals/:animal_id/sanitary', SanitaryController.index);
 router.get('/animals/:animal_id/sanitary/:id', SanitaryController.getOne);
 router.post('/animals/:animal_id/sanitary', SanitaryController.store);
